@@ -1,0 +1,51 @@
+1. Standardize Department Value Formats
+
+Values appear in UPPERCASE, lowercase, TitleCase.
+Example Transformation:
+it / IT / It → IT
+sales / SALES / Sales → Sales
+
+2. Create a New Column: Current_Employee_Flag
+
+Based on Employment_Status:
+If Active → 1
+Else → 0
+
+3. Calculate Total Working Duration
+
+Use Join_Date & Leave_Date:
+If Active → Today - Join_Date
+If Resigned/Terminated → Leave_Date - Join_Date
+
+4. Identify Promotion Eligibility
+
+Based on experience and performance:
+
+Eligibility Rule (example):
+
+Experience ≥ 3 years
+
+Performance ≥ 80
+
+Status = Active
+
+Eligible / Not Eligible
+
+5. Normalize Salary Format
+
+Convert mixed styles to a numeric value:
+
+"₹80,000" → 80000
+"INR 90000" → 90000
+
+6. Normalize Salary Currency
+
+Convert mixed styles to a numeric value:
+
+"₹80,000" → INR
+"INR 90000" → INR
+"USD 90000" → USD
+
+7. Validate Resignation Dates
+If Leave_Date exists but status = Active → Fix required
+If Leave_Date < Join_Date → Wrong entry flag
