@@ -1,10 +1,10 @@
 📌 ETL Test Automation Framework – Summary for README.txt
+We are handling AWS, Azure (With Databrikcs), GCP (Google) and local as well in this Framework.
+Like, using AWS - boto3
+
 This framework automates end-to-end ETL data comparison across multiple data sources. It supports validation between:
-SQL ↔ SQL
-CSV ↔ CSV
-CSV ↔ SQL
-Fixed-width files ↔ SQL/CSV
-Any structured file formats with defined schema
+Source : parquet, CSV, SQL Tables, excel, xsd, API
+target :parquet, CSV, SQL Tables, excel, xsd, API
 
 The tool reads data from both source and target, applies preprocessing rules, aligns schemas, compares primary keys, and generates a detailed Excel report with four tabs.
 🟦 1. Compare Overview (Tab 1)
@@ -56,6 +56,8 @@ pip install openpyxl
 pip install pyodbc
 pip install numpy
 pip install pandas
+pip install requests
+pip install boto3
 
 Also, please check which driver you need to mention in db_connection.py (like I mentioned "ODBC Driver 17 for SQL Server")
 To check this you can use,
