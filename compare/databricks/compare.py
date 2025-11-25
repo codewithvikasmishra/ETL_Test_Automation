@@ -1,16 +1,17 @@
 import pandas as pd
+from azure.storage.filedatalake import DataLakeServiceClient
 
 def compare_dataframes(src_df, tgt_df, output_file, primary_key):
     try:
         # Read input files
         print("Reading source file...")
-        spark_src_df1 = pd.read.csv(src_df, header=True, inferSchema=True)
+        spark_src_df1 = spark.read.csv(src_df, header=True, inferSchema=True)
         src_df1 = spark_src_df1.toPandas()
         df1 = src_df1.reindex(columns=sorted(src_df1.columns))
         source_shape = f"{df1.shape[0]} rows and {df1.shape[1]} columns"
 
         print("Reading target file...")
-        spark_src_df2 = pd.read.csv(tgt_df, header=True, inferSchema=True)
+        spark_src_df2 = spark.read.csv(tgt_df, header=True, inferSchema=True)
         src_df2 = spark_src_df2.toPandas()
         df2 = src_df2.reindex(columns=sorted(src_df2.columns))
         target_shape = f"{df2.shape[0]} rows and {df2.shape[1]} columns"
